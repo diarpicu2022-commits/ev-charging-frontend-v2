@@ -1,0 +1,92 @@
+/* ─── Reset ──────────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Tokens del sistema de diseño ───────────────────────────────────── */
+:root {
+  /* Fondo */
+  --bg:         #0A061C;
+  --bg-surface: #130E28;
+  --bg-card:    #1B1438;
+
+  /* Colores de estado */
+  --col-available:   #4ADE80;
+  --col-connecting:  #60A5FA;
+  --col-charging:    #F97316;
+  --col-completed:   #2DD4BF;
+  --col-error:       #F87171;
+  --col-maintenance: #A78BFA;
+
+  /* Acentos */
+  --orange: #F97316;
+  --amber:  #FBBF24;
+  --green:  #4ADE80;
+
+  /* Texto */
+  --txt:   #EDE9FE;
+  --muted: #7C6FA0;
+  --dim:   #3D3060;
+
+  /* Bordes */
+  --border:     rgba(255, 255, 255, 0.08);
+  --border-mid: rgba(255, 255, 255, 0.06);
+
+  /* Tipografía */
+  --font-display: 'Syne', system-ui, sans-serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Radios */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Transiciones */
+  --t-fast:   150ms ease;
+  --t-normal: 300ms ease;
+  --t-slow:   500ms ease;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────────── */
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--txt);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Scrollbar personalizada ─────────────────────────────────────────── */
+::-webkit-scrollbar        { width: 4px; }
+::-webkit-scrollbar-track  { background: transparent; }
+::-webkit-scrollbar-thumb  { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+/* ─── Focus accesible ────────────────────────────────────────────────── */
+button:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px;
+}
+
+/* ─── Animaciones globales ───────────────────────────────────────────── */
+@keyframes particle-rise {
+  0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(-52px) scale(0.2); opacity: 0; }
+}
+
+@keyframes cable-pulse {
+  to { stroke-dashoffset: -22; }
+}
+
+@keyframes step-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+  50%       { box-shadow: 0 0 0 7px rgba(249, 115, 22, 0.15); }
+}
+
+@keyframes spin-in {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes fade-up {
+  from { transform: translateY(8px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
