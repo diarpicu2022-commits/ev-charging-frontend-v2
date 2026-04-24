@@ -2,7 +2,7 @@
  * Capa de servicio REST para comunicarse con el backend Java Spring Boot.
  * Todos los métodos retornan Promises.
  */
-const BASE = import.meta.env.VITE_API_URL || '/api/station';
+const BASE = 'https://ev-charging-backend-production-abcf.up.railway.app';
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
